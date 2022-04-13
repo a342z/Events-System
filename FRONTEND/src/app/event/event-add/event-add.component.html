@@ -1,0 +1,79 @@
+<!-- <input type="text"  [(ngModel)]="event._id">
+<input type="text" [(ngModel)]="event.title">
+
+<select [(ngModel)]="event.mainspeaker">
+    <option [value]="item._id" *ngFor="let item of speakers">{{item.name}}</option>
+</select>
+
+<input type="date" [(ngModel)]="event.date">
+
+
+<button (click)="save()">save</button> -->
+
+<!-- //ngForm -->
+<!-- <form #signin="ngForm" (submit)="save()">
+
+    <input type="text"  [(ngModel)]="event.title" name="title" #title="ngModel" required>
+    <span *ngIf="title.errors?.['required']"> title is required </span>
+
+    <select [(ngModel)]="event.mainspeaker" required name="mainspeaker" #mainspeaker="ngModel">
+        <option [value]="item._id" *ngFor="let item of speakers">{{item.name}}</option>
+    </select>
+    <span *ngIf="mainspeaker.errors?.['required']"> mainspeaker is required </span>
+
+
+    <input type="date" [(ngModel)]="event.date" required name="date" #date="ngModel" required="">
+    <span *ngIf="date.errors?.['required']"> date is required </span>
+
+    <input type="submit" value="add" [disabled]="signin.invalid">
+</form> -->
+
+<div class="container d-flex justify-content-center mt-5">
+    <p-card
+      header="Add Event"
+      [style]="{ width: '360px' }"
+      styleClass="p-card-shadow"
+    >
+      <ng-template pTemplate="header">
+        <img alt="Card" src="assets/showcase/images/usercard.png" />
+      </ng-template>
+  
+      <form  #signin="ngForm" (submit)="save()">
+  
+          <div class="field mb-2">
+              <label for="title" class="block">title</label>
+              <input id="title" type="title" aria-describedby="title-help" name="title" #title="ngModel" pInputText  [(ngModel)]="event.title" required/>
+              <small  *ngIf="title.errors?.['required'] && title.touched " id="username-help" class="p-error block">title is required</small>
+          </div>
+  
+          <div class="field mb-2">
+              <label for="date" class="block">date</label>
+              <input id="date" type="date" aria-describedby="date-help" name="date" #date="ngModel" pInputText  [(ngModel)]="event.date" required/>
+              <small  *ngIf="date.errors?.['required'] && date.touched" id="date-help" class="p-error block">date is required</small>
+          </div>
+  
+          <div class="field mb-2">
+              <label for="mainspeaker" class="block">mainspeaker</label>
+              <select
+              [(ngModel)]="event.mainspeaker"
+              required
+              name="mainspeaker"
+              #mainspeaker="ngModel"
+            >
+              <option [value]="item._id" *ngFor="let item of speakers">
+                {{ item.name }}
+              </option>
+            </select>
+              <small  *ngIf="mainspeaker.errors?.['required'] && mainspeaker.touched" id="mainspeaker-help" class="p-error block">mainspeaker is required</small>
+          </div>
+  
+     
+          <p-button type="submit" label="Add Event" icon="pi pi-sign-in"></p-button>
+          
+  
+      </form>
+  
+      
+    </p-card>
+  </div>
+  

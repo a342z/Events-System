@@ -1,0 +1,15 @@
+<p-dialog header="Speaker Details" [(visible)]="display">
+    
+    
+    <div class="d-flex p-3 flex-column align-items-center">
+        <p-image src="{{speaker?.image}}" alt="Image" width="250"></p-image>
+        <h3>{{speaker?.name}}</h3>
+        <p>Bdate: {{speaker?.bdate | date }}</p>
+        <p>Address: {{speaker?.address}}</p>
+        <p>IsMarried?: {{speaker?.isMarried}}</p>
+        <p>hourRate: {{speaker?.hourRate}}</p>
+        <p>Rating: {{speaker?.rating}}</p>
+    </div>
+</p-dialog>
+
+<p-button (click)="showSpeaker()" icon="pi pi-info-circle" label="Details"></p-button>

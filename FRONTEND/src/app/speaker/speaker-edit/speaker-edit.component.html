@@ -1,0 +1,82 @@
+<p-dialog header="Speaker Details" [(visible)]="display">
+  <div class="grid p-fluid">
+    <div class="col-12 md:col-4">
+      <div class="p-inputgroup mb-3">
+        <span class="p-inputgroup-addon">Name<i class="pi pi-user"></i></span>
+        <input
+          [(ngModel)]="speaker.name"
+          type="text"
+          pInputText
+          placeholder="name"
+        />
+      </div>
+
+      <div class="p-inputgroup mb-3">
+        <span class="p-inputgroup-addon">Address<i class="pi pi-map"></i></span>
+        <input
+          [(ngModel)]="speaker.address"
+          (ngModelChange)="(speaker?.address)"
+          type="text"
+          pInputText
+          placeholder="address"
+        />
+      </div>
+
+      <div class="p-inputgroup mb-3">
+        <span class="p-inputgroup-addon">image<i class="pi pi-image"></i></span>
+        <input
+          [(ngModel)]="speaker.image"
+          (ngModelChange)="(speaker?.image)"
+          type="file"
+          pInputText
+          placeholder="image"
+          (input)="onFileChange($event)"
+        />
+      </div>
+
+      <div class="p-inputgroup mb-3">
+        <span class="p-inputgroup-addon"
+          >hourRate<i class="pi pi-dollar"></i
+        ></span>
+        <input
+          type="text"
+          pInputText
+          placeholder="hourTate"
+          [(ngModel)]="speaker.hourRate"
+        />
+      </div>
+
+      <div class="p-inputgroup mb-3">
+        <div class="p-inputgroup mb-3">
+          <label class="form-check-label p-inputgroup-addon" for="isMarried"
+            >isMarried<i class="pi pi-users"></i
+          ></label>
+          <input
+            #tmarried
+            class="form-check-input"
+            [(ngModel)]="speaker.isMarried"
+            id="isMarried"
+            type="checkbox"
+          />
+        </div>
+      </div>
+      
+      <div class="p-inputgroup mb-3">
+        <span class="p-inputgroup-addon">rating<i class="pi pi-star"></i></span>
+        <p-rating [cancel]="false" [(ngModel)]="speaker.rating"></p-rating>
+      </div>
+
+      <p-button
+        style="margin: auto"
+        label="Update"
+        (click)="updateSpeaker()"
+      ></p-button>
+    </div>
+  </div>
+</p-dialog>
+
+<p-button
+  (click)="editSpeaker()"
+  icon="pi pi-user-edit"
+  label="Edit"
+></p-button>

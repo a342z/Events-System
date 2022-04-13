@@ -1,0 +1,11 @@
+<input type="text"  [(ngModel)]="event._id">
+<input type="text" [(ngModel)]="event.title">
+
+<select [(ngModel)]="event.mainspeaker">
+    <option [value]="item._id" *ngFor="let item of speakers">{{item.name}}</option>
+</select>
+
+<input type="date" [(ngModel)]="event.date">
+
+
+<button (click)="save()">save</button>

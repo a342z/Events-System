@@ -1,0 +1,20 @@
+<div class="container d-flex justify-content-center mt-5">
+
+    <p-card header={{event.title}} [style]="{width: '360px'}" styleClass="p-card-shadow">
+        <ng-template pTemplate="header">
+            <img alt="Card" src="assets/showcase/images/usercard.png">
+        </ng-template>
+    
+        <p>Event ID: {{event._id}}</p>
+        <p>Title: {{event.title}}</p>
+        <p>MainSpeaker: {{event.mainspeaker}}</p>
+        <p>date: {{event.date }}</p>
+    
+        <ng-template pTemplate="footer">
+            
+        <p-button (onClick)= "back()" label="Back to all events" icon="pi pi-arrow-circle-left"></p-button>
+
+        </ng-template>
+    </p-card>
+  
+</div>

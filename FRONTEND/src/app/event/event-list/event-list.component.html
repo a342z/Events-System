@@ -1,0 +1,78 @@
+<button (click)="load()">load</button>
+<div class="container">
+  <p-button [routerLink]="['/events', 'add']" label="ADD Event"></p-button>
+  <table class="table table-striped table-bordered my-3" *ngIf="events?.length">
+    <thead class="thead-dark">
+      <tr>
+        <th>id</th>
+        <th>title</th>
+        <th>date</th>
+        <th>main speaker</th>
+        <th>operations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of events" appHighlight="#DFDFDF" dcolor="white">
+        <td>{{ item._id }}</td>
+        <td>{{ item.title }}</td>
+        <td>{{ item.date | date }}</td>
+        <td>{{ item.mainspeaker }}</td>
+
+        <td>
+          <div class="d-flex justify-content-evenly">
+           
+              <p-button
+                [routerLink]="['/events', 'details', item._id]"
+                label="Details"
+              >
+              </p-button>
+
+              <p-button
+                [routerLink]="['/events', 'edit', item._id]"
+                label="Edit"
+              >
+              </p-button>
+
+              <p-button
+              (click)="deleteEvent(item._id)"
+              icon="pi pi-trash
+            "
+              label="Delete"
+            ></p-button>
+
+              
+
+              <!-- <a   class="btn btn-primary"[routerLink]="['/departments','details',item._id]">details</a> -->
+              <!-- <button (click)="deptEditId=item._id">edit</button> -->
+              <!-- | <a [routerLink]="['/departments','edit',item._id]">edit</a> -->
+      
+            <!-- <button
+              class="btn btn-primary w-100 mx-2"
+              (click)="deleteSpeaker(item._id)"
+            >
+              Delete
+            </button> -->
+            <!-- <p-button
+              (click)="deleteSpeaker(item._id)"
+              icon="pi pi-trash
+            "
+              label="Delete"
+            ></p-button> -->
+
+            <!-- <button class="btn btn-primary w-100 mx-2" (click)="editSpeaker(item._id)">
+              Edit
+            </button> -->
+
+            <!-- <button class="btn btn-primary w-100 mx-2" (click)="showDetails(item._id)">
+              Details
+            </button> -->
+            <!-- <a   class="btn btn-primary"[routerLink]="['/speakers','details',item._id]">details</a> -->
+            <!-- <app-speaker-edit [id]="item._id"></app-speaker-edit> -->
+            <!-- <app-speaker-details [id]="item._id"></app-speaker-details> -->
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<router-outlet></router-outlet>
